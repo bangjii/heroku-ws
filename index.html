@@ -1,0 +1,43 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="WebSocket client for send received message private and broadcast">
+	<meta name="keywords" content="HTML, JavaScript, WebSocket, WebSocket Client">
+	<meta name="author" content="bangjii">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<center>
+	<textarea ondblclick="clear()" id="txtReceived" rows="8" cols="40">
+	</textarea>
+	</center>
+<script>
+	var myUser = "debug";
+	var basicAuth = {user:myUser};
+	var HOST = location.origin.replace(/^http/, 'ws')
+    var ws = new WebSocket(HOST + '/' + JSON.stringify(basicAuth));
+	var textArea = document.getElementById('txtReceived');
+	textArea.value = "";
+	textArea.value += 'websocket client started\n' + '-------------------' + '\n';
+	ws.onopen = function (e) {
+		textArea.value += 'websocket connected!\n' + '-------------------' + '\n';
+		console.log(e);
+	}
+	ws.onclose = function (e) {
+		textArea.value += 'websocket closed!\n' + '-------------------' + '\n';
+		console.log(e);
+	}
+	ws.onmessage = function (e) {
+		console.log(e);
+		textArea.value += e.data + '\n' + '-------------------' + '\n';
+	}
+	ws.onerror = function (e) {
+		textArea.value += 'websocket disconnected!\n' + '-------------------' + '\n';
+		console.log(e);
+	}
+	function clear(){
+		textArea.value = "";
+	}
+</script>
+</body>
+</html>
