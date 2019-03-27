@@ -6,7 +6,8 @@
     "url": "https://github.com/bangjii/heroku-ws.git"
   },
   "dependencies": {
-    "ws": "^6.1.4"
+    "ws": "^6.1.4",
+    "express": "4.16.4"
   },
   "engines": {
     "node": "10.15.3"
