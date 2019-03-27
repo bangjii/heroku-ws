@@ -25,6 +25,11 @@ wss.broadcast = function broadcast(data) {
 	});
 };
 
+//ping client to keepalive connection
+setInterval(() => {
+  wss.broadcast("PING!");
+}, 1000);
+
 //if connection happen	
 wss.on('connection', function (ws, req) {
 	//user validation on first connection {user: "jamblang"}
