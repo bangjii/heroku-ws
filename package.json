@@ -1,0 +1,20 @@
+{
+  "name": "Heroku WebSocket Server",
+  "version": "1.0.0",
+  "description": "websocket send private and broadcast to all user",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bangjii/heroku-ws.git"
+  },
+  "author": "bangjii",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^6.1.4"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
