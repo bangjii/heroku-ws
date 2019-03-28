@@ -44,10 +44,10 @@ Setelah semuanya selesai, lakukan langkah berikut.
 Untuk dokumentasi lengkap bisa diakses melalui url:
 
 ```
-	https://devcenter.heroku.com/articles/getting-started-with-nodejs
+https://devcenter.heroku.com/articles/getting-started-with-nodejs
 ```
 
-Untuk melakukan update (edit, delete, insert) project.
+## Clone heroku project to local and update
 1. login :
 * buka cmd lalu ketik "heroku login", lakukan login pada browser yang telah terbuka.
 2. clone : 
@@ -66,7 +66,7 @@ Untuk dokumentasi lengkap bisa diakses melalui url:
 https://dashboard.heroku.com/apps/myproject-some-53694/deploy/heroku-git
 ```
 
-## Update existing project
+## Update existing heroku project from local
 1. buka CMD, arahkan ke directory project. contoh "cd D:\heroku\my-project"
 2. login ke heroku. "heroku login"
 3. arahkan ke spesifik project. "heroku git:remote -a my-project"
