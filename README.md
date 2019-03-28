@@ -35,7 +35,7 @@ Setelah semuanya selesai, lakukan langkah berikut.
 * dari cmd ketikkan "heroku create"
 * lalu "git push heroku master"
 4. untuk start aplikasi yang sudah diupload :
-* ketikkan "heroku ps:scale web=1"
+* ketikkan "heroku ps:scale web=1 --app nama-aplikasi-nya"
 5. untuk membuka aplikasi : 
 * "heroku open"
 6. untuk melihat log debug :
