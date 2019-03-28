@@ -119,6 +119,7 @@ Untuk menghapus total git heroku itu ketik "git remote rm nama-aplikasi". Dan co
 ## Sumber Data
 
 * [Heroku](https://www.heroku.com/) - Official site Heroku.
+* [Rename Project Heroku](https://devcenter.heroku.com/articles/renaming-apps) - Renaming Apps & Delete git from the CLI.
 * [WebSocket Issues](https://github.com/websockets/ws/issues/767) - Official github WebSocket issues Reconnection and KeepAlive.
 
 ## Authors
