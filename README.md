@@ -94,6 +94,27 @@ https://dashboard.heroku.com/apps/myproject-some-53694/deploy/heroku-git
 7. Karena saya sudah mencoba hanya menggunakan project murni websocket hasilnya tidak dapat jalan secara normal di heroku (atau memang saya salah confignya yah :D).
 8. Untuk project websocket di heroku disaat idle (selama bbrp detik) client akan otomatis close connection.
 9. Berdasarkan explorasi semalaman tentang issue ini, ternyata memang seperti itu, tidak ada kesalah config ataupun coding disisi client ataupun server websocket. Untuk mensiasati hal ini tidak disarankan untuk melakukan reconnecting (dan memang dokumentasi websocket tidak tersedia function ini) secara manual, yang disarakan adalah melakukan "ping-pong" antara client dan server agar koneksi "keep-alive".
+10. Error: Multiple apps in git remote.
+
+```
+D:\bangjii\nodejs\heroku\jamblang-thepurple>heroku ps:scale web=0
+ »   Error: Multiple apps in git remotes
+ »      Usage: --remote cempedak-thejackfruit
+ »         or: --app mysterious-dust-12345
+ »      Your local git repository has more than 1 app referenced in git
+ »   remotes.
+ »      Because of this, we can't determine which app you want to run this
+ »   command against.
+ »      Specify the app you want with --app or --remote.
+ »      Heroku remotes in repo:
+ »      cempedak-thejackfruit (heroku)
+ »   mysterious--dust-12345 (doyou-knowapp)
+ »
+ »      https://devcenter.heroku.com/articles/multiple-environments
+``` 
+
+Itu karena telah melakukan perubahan nama pada git heroku dan project lama telah dihapus. Jadi git heroku mendeteksi adanya lebih dari satu repository, dan jika kita mau melakukan remote harus menggunakan --app nama-aplikasi dibelakang command yang akan dilakukan.
+Untuk menghapus total git heroku itu ketik "git remote rm nama-aplikasi". Dan command "heroku ps:scale web=0" pun dapat dijalankan kembali (tanpa --app nama-aplikasi).
 
 ## Sumber Data
 
