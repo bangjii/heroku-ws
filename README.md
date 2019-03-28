@@ -65,7 +65,18 @@ Untuk dokumentasi lengkap bisa diakses melalui url:
 ```
 https://dashboard.heroku.com/apps/myproject-some-53694/deploy/heroku-git
 ```
-Notes.
+
+## Update existing project
+1. buka CMD, arahkan ke directory project. contoh "cd D:\heroku\my-project"
+2. login ke heroku. "heroku login"
+3. arahkan ke spesifik project. "heroku git:remote -a my-project"
+4. lakukan perubahan, edit delete or somethings else with your project.
+5. update and push :
+* "git add ."
+* "git commit -am 'catetan perubahan'"
+* "git push heroku master" 
+
+## Notes
 1. Project github yang bisa diupload ke server heroku hanya project yang berisi git.
 2. Untuk struktur package.json bisa mengikuti [contoh](https://github.com/bangjii/heroku-ws/blob/master/package.json) atau buka [dokumentasi](https://devcenter.heroku.com/articles/getting-started-with-nodejs#declare-app-dependencies) untuk informasi lengkapnya.
 3. Jika ini adalah awal memakai git, disaat melakukan "git commit" nanti akan ditolak pada saat pertama, lakukan git config untuk bisa melakukan git commit, contoh "git config --global user.email 'alitopan666@gmail.com'" dan "git config --global user.name 'ali topan'".
