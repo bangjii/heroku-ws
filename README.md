@@ -116,6 +116,25 @@ D:\bangjii\nodejs\heroku\jamblang-thepurple>heroku ps:scale web=0
 Itu karena telah melakukan perubahan nama pada git heroku dan project lama telah dihapus. Jadi git heroku mendeteksi adanya lebih dari satu repository, dan jika kita mau melakukan remote harus menggunakan --app nama-aplikasi dibelakang command yang akan dilakukan.
 Untuk menghapus total git heroku itu ketik "git remote rm nama-aplikasi". Dan command "heroku ps:scale web=0" pun dapat dijalankan kembali (tanpa --app nama-aplikasi).
 
+11. Untuk debug log dari aplikasi yang kita buat dapat diakses melalui cmd / terminal
+```
+heroku logs --tail
+```
+
+12. Untuk restart aplikasi
+```
+heroku restart
+```
+
+13. PENTING! websocket didalam heroku idling time nya 55 detik. Jika dalam waktu tersebut tidak ada aktifitas komunikasi antara server dan client maka websocket server akan closed. Untuk mensiasatinya adalah dengan menggunakan method ping-pong yaitu send websocket (server dan client) secara berkala untuk menjaga koneksi keepalive.
+```
+setInterval(() => {
+	if (ws.readyState === WebSocket.OPEN) {
+	   ws.send(JSON.stringify({keepalive:"PING!"})); //anything yg pntg kirim apaan kek
+	}
+}, 55000);
+```
+
 ## Sumber Data
 
 * [Heroku](https://www.heroku.com/) - Official site Heroku.
